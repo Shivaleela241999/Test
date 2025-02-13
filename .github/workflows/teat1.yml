@@ -1,6 +1,6 @@
 name: Problem 001 Workflow
 on:
-  push:
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
