@@ -1,0 +1,26 @@
+name: Problem 002 Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      parameter:
+        description: 'Input parameter for the script'
+        required: true
+        type: string
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    
+    steps:
+    -name: checkout input
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    
+    - name: Run Python script
+      run: |
+        python process_parameter.py ${{ github.event.inputs.parameter }}
