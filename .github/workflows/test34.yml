@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    -name: checkout input
-    - uses: actions/checkout@v4
+    - name: get code
+      uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -22,5 +22,4 @@ jobs:
         python-version: '3.x'
     
     - name: Run Python script
-      run: python process_parameter.py ${{ github.event.inputs.parameter }}
-     
+      run: python process_parameter.py "${{ github.event.inputs.parameter }}"
